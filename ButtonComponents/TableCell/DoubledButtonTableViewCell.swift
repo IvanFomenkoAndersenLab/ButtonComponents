@@ -9,17 +9,15 @@ import UIKit
 
 class DoubledButtonTableViewCell: UITableViewCell {
 
-	@IBOutlet weak var stackView: UIStackView!
+	@IBOutlet weak var stackView: DoubledButton!
 	
-	override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+	func setupCell(doubleButtonParams: DoubleButtonParams) {
+		stackView.apply(style: doubleButtonParams.doubleButtonType, leftButtonText: doubleButtonParams.leftButtonText, rightButtonText: doubleButtonParams.rightButtonText)
+	}
+	
+	override func prepareForReuse() {
+		for view in self.stackView.subviews {
+			view.removeFromSuperview()
+		}
+	}
 }

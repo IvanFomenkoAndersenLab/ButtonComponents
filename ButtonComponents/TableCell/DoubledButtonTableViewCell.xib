@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W60-8w-9M2">
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W60-8w-9M2" customClass="DoubledButton" customModule="ButtonComponents" customModuleProvider="target">
                         <rect key="frame" x="20" y="20" width="280" height="55"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="55" id="JNl-Il-uxN"/>
@@ -32,7 +32,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="stackView" destination="W60-8w-9M2" id="Glx-ao-YQg"/>
+                <outlet property="stackView" destination="W60-8w-9M2" id="gJB-3f-wHP"/>
             </connections>
             <point key="canvasLocation" x="87" y="92"/>
         </tableViewCell>

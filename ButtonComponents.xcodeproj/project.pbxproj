@@ -127,13 +127,13 @@
 		B27F998A25E31ABD0004995D /* ButtonComponents */ = {
 			isa = PBXGroup;
 			children = (
+				B27F998F25E31ABD0004995D /* ViewController.swift */,
 				B27F99D725E31B9A0004995D /* TableCell */,
 				B27F99D525E31B8D0004995D /* Components */,
 				B27F99D825E31BA10004995D /* Fonts */,
 				B27F99D625E31B940004995D /* Extensions */,
 				B27F998B25E31ABD0004995D /* AppDelegate.swift */,
 				B27F998D25E31ABD0004995D /* SceneDelegate.swift */,
-				B27F998F25E31ABD0004995D /* ViewController.swift */,
 				B27F999125E31ABD0004995D /* Main.storyboard */,
 				B27F999425E31AC10004995D /* Assets.xcassets */,
 				B27F999625E31AC10004995D /* LaunchScreen.storyboard */,
@@ -163,12 +163,8 @@
 		B27F99D525E31B8D0004995D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B27F99DC25E31BC70004995D /* ButtonComponents.swift */,
-				B27F99DB25E31BC70004995D /* FullWidthButtonStyle.swift */,
-				B27F99DA25E31BC60004995D /* FullWidthButton.swift */,
-				B27F9A0E25E31EA60004995D /* DoubledButton.swift */,
-				B27F9A1C25E320E10004995D /* DoubledButtonComponents.swift */,
-				B27F9A2425E321930004995D /* DoubledButtonStyle.swift */,
+				B27F9A4C25E3A10D0004995D /* FullWidthButton */,
+				B27F9A4D25E3A1180004995D /* DoubledButton */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -200,6 +196,26 @@
 				B27F9A0925E31CB60004995D /* MyriadGEOMtavruli-Bold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B27F9A4C25E3A10D0004995D /* FullWidthButton */ = {
+			isa = PBXGroup;
+			children = (
+				B27F99DC25E31BC70004995D /* ButtonComponents.swift */,
+				B27F99DB25E31BC70004995D /* FullWidthButtonStyle.swift */,
+				B27F99DA25E31BC60004995D /* FullWidthButton.swift */,
+			);
+			path = FullWidthButton;
+			sourceTree = "<group>";
+		};
+		B27F9A4D25E3A1180004995D /* DoubledButton */ = {
+			isa = PBXGroup;
+			children = (
+				B27F9A1C25E320E10004995D /* DoubledButtonComponents.swift */,
+				B27F9A2425E321930004995D /* DoubledButtonStyle.swift */,
+				B27F9A0E25E31EA60004995D /* DoubledButton.swift */,
+			);
+			path = DoubledButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

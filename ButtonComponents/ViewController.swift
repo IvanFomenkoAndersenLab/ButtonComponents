@@ -20,6 +20,19 @@ struct ButtonParams {
 		self.imageName = imageName
 	}
 }
+
+struct DoubleButtonParams {
+	let doubleButtonType: DoubledButtonStyle
+	let leftButtonText: String
+	let rightButtonText: String
+	
+	init(doubleButtonType: DoubledButtonStyle, leftButtonText: String = "Button", rightButtonText: String = "Button") {
+		self.doubleButtonType = doubleButtonType
+		self.leftButtonText = leftButtonText
+		self.rightButtonText = rightButtonText
+	}
+}
+
 class ViewController: UIViewController {
 	
 	@IBOutlet private weak var tableView: UITableView!
@@ -33,6 +46,11 @@ class ViewController: UIViewController {
 		ButtonParams(buttonType: .topRoundedButtonWithRightImage, title: "topRoundedButtonWithRightImage", imageName: "testImage")
 	]
 	
+	private var doubleButtons: [DoubleButtonParams] = [
+		DoubleButtonParams(doubleButtonType: .blueLeftDarkBlueRightButtons),
+		DoubleButtonParams(doubleButtonType: .pinkLeftDarkBlueRightButtons)
+	]
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupTableView()
@@ -42,22 +60,31 @@ class ViewController: UIViewController {
 		self.tableView.dataSource = self
 		self.tableView.delegate = self
 		self.tableView.register(UINib(nibName: "ButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "ButtonTableViewCell")
+		self.tableView.register(UINib(nibName: "DoubledButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "DoubledButtonTableViewCell")
 	}
-	
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return buttons.count
+		return buttons.count + doubleButtons.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if let cell = self.tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell") as? ButtonTableViewCell {
-			cell.setupCell(buttonParams: buttons[indexPath.row])
-			return cell
+		if indexPath.row < buttons.count {
+			if let cell = self.tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell") as? ButtonTableViewCell {
+				cell.setupCell(buttonParams: buttons[indexPath.row])
+				return cell
+			}
+			
+			return UITableViewCell()
+		} else {
+			if let cell = self.tableView.dequeueReusableCell(withIdentifier: "DoubledButtonTableViewCell") as? DoubledButtonTableViewCell {
+				cell.setupCell(doubleButtonParams: doubleButtons[indexPath.row - buttons.count])
+				return cell
+			}
+			
+			return UITableViewCell()
 		}
-		
-		return UITableViewCell()
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
